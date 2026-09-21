@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FPS游戏排行榜 - 全网最权威的第一人称射击游戏热度榜单。实时更新CS2、瓦罗兰特、无畏契约、APEX英雄等热门FPS游戏排名、玩家数量及评测分析。">
+    <meta name="keywords" content="FPS游戏排行榜,第一人称射击游戏,热门FPS游戏,CS2排名,瓦罗兰特榜单,射击游戏推荐">
+    <title>FPS游戏排行榜-热门射击游戏热度与评测</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00f2ff;
+            --secondary-color: #7000ff;
+            --bg-dark: #0a0b10;
+            --bg-card: #13141f;
+            --text-main: #ffffff;
+            --text-sub: #a0a0b0;
+            --accent-green: #00ff9d;
+            --accent-red: #ff4d4d;
+            --font-stack: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 11, 16, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-bar input {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: var(--text-main);
+            outline: none;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-bar input:focus {
+            width: 250px;
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), var(--bg-dark)), url('https://picsum.photos/seed/fpshero/1920/600') center/cover no-repeat;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filters */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-sub);
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Leaderboard Table */
+        .leaderboard-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .rank-table th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-sub);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .rank-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+
+        .rank-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rank-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .rank-num {
+            font-weight: 700;
+            font-size: 1.2rem;
+            width: 60px;
+            text-align: center;
+        }
+
+        .rank-1 .rank-num { color: #ffd700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+        .rank-2 .rank-num { color: #c0c0c0; }
+        .rank-3 .rank-num { color: #cd7f32; }
+
+        .game-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .game-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #333;
+            object-fit: cover;
+        }
+
+        .game-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .game-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 4px;
+        }
+
+        .trend-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .trend-up { background: rgba(0, 255, 157, 0.15); color: var(--accent-green); }
+        .trend-down { background: rgba(255, 77, 77, 0.15); color: var(--accent-red); }
+        .trend-stable { background: rgba(255, 255, 255, 0.1); color: var(--text-sub); }
+
+        .stat-bar {
+            width: 100px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .rank-table th:nth-child(3), .rank-table td:nth-child(3) { display: none; }
+            .rank-table th:nth-child(4), .rank-table td:nth-child(4) { display: none; }
+            .rank-table th:nth-child(5), .rank-table td:nth-child(5) { display: none; }
+            .rank-table th:nth-child(6), .rank-table td:nth-child(6) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">FPS排行榜</a>
+        <nav class="nav-links">
+            <a href="#" class="active">排行榜</a>
+            <a href="#">游戏库</a>
+            <a href="#">硬件评测</a>
+            <a href="#">新手指南</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索游戏...">
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>探索顶级FPS游戏世界</h1>
+            <p>实时追踪全球热门第一人称射击游戏热度，为您提供最权威的排名与玩家数据参考。</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-btn active">综合热度</button>
+            <button class="filter-btn">玩家在线</button>
+            <button class="filter-btn">Steam好评</button>
+            <button class="filter-btn">月活跃用户</button>
+        </div>
+
+        <!-- Leaderboard Table -->
+        <section class="leaderboard-section">
+            <h2 class="section-title">当前热门FPS游戏排行榜</h2>
+            <table class="rank-table">
+                <thead>
+                    <tr>
+                        <th width="10%">排名</th>
+                        <th width="40%">游戏名称</th>
+                        <th width="15%">趋势</th>
+                        <th width="15%">热度指数</th>
+                        <th width="20%">平台</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="rank-1">
+                        <td class="rank-num">1</td>
+                        <td>
+                            <div class="game-info">
+                                <img src="https://picsum.photos/seed/cs2/50/50" alt="CS2" class="game-icon">
+                                <div>
+                                    <div class="game-name">反恐精英 2 (CS2)</div>
+                                    <div class="game-meta">Valve • 2D Tactical Shooter</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="trend-badge trend-up">▲ 12.5%</span></td>
+                        <td>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:0.8rem;">
+                                <span>热度</span>
+                                <span>98,420</span>
+                            </div>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 95%;"></div></div>
+                        </td>
+                        <td><span style="color:var(--primary-color)">PC</span> / <span>Console</span></td>
+                        <td><button class="action-btn">查看详情</button></td>
+                    </tr>
+                    <tr class="rank-2">
+                        <td class="rank-num">2</td>
+                        <td>
+                            <div class="game-info">
+                                <img src="https://picsum.photos/seed/valo/50/50" alt="Valorant" class="game-icon">
+                                <div>
+                                    <div class="game-name">无畏契约 (Valorant)</div>
+                                    <div class="game-meta">Riot Games • Tactical Shooter</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="trend-badge trend-up">▲ 5.2%</span></td>
+                        <td>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:0.8rem;">
+                                <span>热度</span>
+                                <span>85,100</span>
+                            </div>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 88%;"></div></div>
+                        </td>
+                        <td><span style="color:var(--primary-color)">PC</span> / <span>Console</span></td>
+                        <td><button class="action-btn">查看详情</button></td>
+                    </tr>
+                    <tr class="rank-3">
+                        <td class="rank-num">3</td>
+                        <td>
+                            <div class="game-info">
+                                <img src="https://picsum.photos/seed/apex/50/50" alt="Apex" class="game-icon">
+                                <div>
+                                    <div class="game-name">Apex 英雄</div>
+                                    <div class="game-meta">EA • Battle Royale</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="trend-badge trend-down">▼ 2.1%</span></td>
+                        <td>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:0.8rem;">
+                                <span>热度</span>
+                                <span>78,300</span>
+                            </div>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 82%;"></div></div>
+                        </td>
+                        <td><span style="color:var(--primary-color)">PC</span> / <span>Console</span></td>
+                        <td><button class="action-btn">查看详情</button></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-num">4</td>
+                        <td>
+                            <div class="game-info">
+                                <img src="https://picsum.photos/seed/ow2/50/50" alt="OW2" class="game-icon">
+                                <div>
+                                    <div class="game-name">守望先锋 2</div>
+                                    <div class="game-meta">Blizzard • Hero Shooter</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="trend-badge trend-stable">- 0.0%</span></td>
+                        <td>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:0.8rem;">
+                                <span>热度</span>
+                                <span>65,400</span>
+                            </div>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 68%;"></div></div>
+                        </td>
+                        <td><span style="color:var(--primary-color)">PC</span> / <span>Console</span></td>
+                        <td><button class="action-btn">查看详情</button></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-num">5</td>
+                        <td>
+                            <div class="game-info">
+                                <img src="https://picsum.photos/seed/pubg/50/50" alt="PUBG" class="game-icon">
+                                <div>
+                                    <div class="game-name">绝地求生 (PUBG)</div>
+                                    <div class="game-meta">PUBG Corp • Battle Royale</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="trend-badge trend-up">▲ 1.8%</span></td>
+                        <td>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:0.8rem;">
+                                <span>热度</span>
+                                <span>58,200</span>
+                            </div>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 60%;"></div></div>
+                        </td>
+                        <td><span style="color:var(--primary-color)">PC</span> / <span>Console</span></td>
+                        <td><button class="action-btn">查看详情</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-grid">
+            <article class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>实时数据更新</h3>
+                <p>我们的榜单基于全球各大游戏平台（Steam, Epic, Battle.net等）的实时活跃度数据进行动态调整。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>多维度评价</h3>
+                <p>不仅关注热度，还结合了玩家社区评价、Steam好评率以及专业媒体评分，为您提供全方位参考。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>新手推荐</h3>
+                <p>针对不同游戏类型（战术射击、大逃杀、英雄射击）提供适合新手入坑的详细指南和配置建议。</p>
+            </article>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">FPS游戏排行榜的数据来源是什么？</div>
+                <div class="faq-answer">我们的数据综合了Steam Charts、官方服务器登录人数统计以及第三方游戏数据分析平台的聚合结果，确保数据的客观性和准确性。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何选择适合自己的FPS游戏？</div>
+                <div class="faq-answer">选择FPS游戏主要取决于您的游戏偏好。如果您喜欢团队配合和战术策略，推荐CS2或Valorant；如果您喜欢快节奏和高机动性，Apex英雄或守望先锋2可能更适合您。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">这些游戏对电脑配置有要求吗？</div>
+                <div class="faq-answer">FPS游戏的配置需求差异较大。像CS2和Valorant对中端显卡（如GTX 1060）即可流畅运行；而像Apex英雄或PUBG则需要较好的CPU性能。建议查看具体游戏的系统要求。</div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">数据说明</a>
+            <a href="#">联系方式</a>
+            <a href="#">免责声明</a>
+        </div>
+        <p>&copy; 2023 FPS游戏排行榜. All rights reserved. 本站仅提供数据展示与参考。</p>
+    </div>
+</footer>
+
+<script>
+    // FAQ Accordion Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Simple Tab Filter Logic (Visual Only)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // In a real app, this would filter the table rows
+            });
+        });
+    });
+</script>
+
+</body>
+  </html>
