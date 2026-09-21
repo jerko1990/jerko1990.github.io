@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看韩剧 - 热门韩剧在线观看与追剧指南</title>
+    <meta name="description" content="提供最新最全的韩剧在线观看资源，涵盖浪漫爱情、悬疑推理、古装历史等多种类型。本站致力于为用户提供高清流畅的韩剧观看体验，包含追剧日历、剧情介绍及热门剧集推荐。">
+    <meta name="keywords" content="看韩剧, 韩国电视剧, 在线观看, 欧美韩剧, 韩剧排行榜, 追剧">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #b81d24;
+            --dark-bg: #141414;
+            --card-bg: #1f1f1f;
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --accent: #46d369;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            background: #333;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 6px 12px;
+            color: #fff;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            width: 240px;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--dark-bg) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-bottom: 40px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+            color: #ddd;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin-left: 12px;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 分类标签 */
+        .category-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .category-tab {
+            padding: 8px 16px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .category-tab:hover {
+            color: white;
+        }
+
+        .category-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 剧集列表 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #333;
+            position: relative;
+        }
+
+        .card-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background-color: #333;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 0.7rem;
+        }
+
+        /* 追剧日历 */
+        .calendar-section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .cal-day-name {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            padding-bottom: 12px;
+        }
+
+        .cal-day {
+            background-color: #2a2a2a;
+            border-radius: 4px;
+            padding: 12px 4px;
+            text-align: center;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .cal-day.today {
+            background-color: #333;
+            border: 1px solid var(--primary-color);
+        }
+
+        .cal-date {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 4px;
+        }
+
+        .cal-event {
+            font-size: 0.75rem;
+            background-color: #444;
+            color: #fff;
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cal-event.new {
+            background-color: var(--primary-color);
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            padding: 0 16px 16px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #000;
+            padding: 60px 0 30px;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+
+            .grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                </svg>
+                欧美韩剧网
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">韩剧推荐</a>
+                <a href="#">欧美剧集</a>
+                <a href="#">电影</a>
+                <a href="#">综艺</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索韩剧...">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 首屏推荐 -->
+        <section class="hero" style="background-image: url('https://picsum.photos/seed/romance/1200/600');">
+            <div class="hero-content">
+                <span class="hero-badge">本周热门</span>
+                <h1 class="hero-title">甜蜜暴击：爱的法则</h1>
+                <div class="hero-meta">
+                    <span>2024</span>
+                    <span>16集</span>
+                    <span>爱情 / 治愈</span>
+                    <span>豆瓣 8.5</span>
+                </div>
+                <p class="hero-desc">
+                    一位退役拳击手意外成为了一名高中体育老师，在教导学生的过程中，他遇到了一位充满活力且患有严重心脏病的少女。两人在相互扶持中逐渐产生了真挚的情感，共同面对生活中的挑战与命运的考验。
+                </p>
+                <div>
+                    <button class="btn btn-primary">立即观看</button>
+                    <button class="btn btn-secondary">加入片单</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类导航 -->
+        <div class="category-tabs">
+            <div class="category-tab active">全部</div>
+            <div class="category-tab">浪漫爱情</div>
+            <div class="category-tab">悬疑推理</div>
+            <div class="category-tab">古装历史</div>
+            <div class="category-tab">职场商战</div>
+            <div class="category-tab">丧尸科幻</div>
+            <div class="category-tab">历史传记</div>
+            <div class="category-tab">青春校园</div>
+        </div>
+
+        <!-- 最新更新 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">最新更新</h2>
+                <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">查看更多 ></a>
+            </div>
+            <div class="grid-layout">
+                <!-- 卡片 1 -->
+                <article class="card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/king/300/450" alt="海报">
+                        <div class="card-overlay">
+                            <div class="play-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">王后伞下</h3>
+                        <div class="card-meta">
+                            <span>更新至12集</span>
+                            <span class="tag">古装</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 2 -->
+                <article class="card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/thriller/300/450" alt="海报">
+                        <div class="card-overlay">
+                            <div class="play-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">黑暗荣耀</h3>
+                        <div class="card-meta">
+                            <span>更新至8集</span>
+                            <span class="tag">复仇</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 3 -->
+                <article class="card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/school/300/450" alt="海报">
+                        <div class="card-overlay">
+                            <div class="play-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">背着善宰跑</h3>
+                        <div class="card-meta">
+                            <span>更新至10集</span>
+                            <span class="tag">穿越</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 4 -->
+                <article class="card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/hospital/300/450" alt="海报">
+                        <div class="card-overlay">
+                            <div class="play-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">机智医生生活</h3>
+                        <div class="card-meta">
+                            <span>已完结</span>
+                            <span class="tag">治愈</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 5 -->
+                <article class="card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/chaos/300/450" alt="海报">
+                        <div class="card-overlay">
+                            <div class="play-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">鱿鱼游戏2</h3>
+                        <div class="card-meta">
+                            <span>即将上线</span>
+                            <span class="tag">惊悚</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 6 -->
+                <article class="card">
+                    <div class="card-poster">
+                        <img src="https://picsum.photos/seed/navy/300/450" alt="海报">
+                        <div class="card-overlay">
+                            <div class="play-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">黑道律师文森佐</h3>
+                        <div class="card-meta">
+                            <span>已完结</span>
+                            <span class="tag">律政</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 追剧日历 -->
+        <section class="calendar-section">
+            <div class="section-header">
+                <h2 class="section-title">追剧日历</h2>
+            </div>
+            <div class="calendar-grid">
+                <div class="cal-day-name">周日</div>
+                <div class="cal-day-name">周一</div>
+                <div class="cal-day-name">周二</div>
+                <div class="cal-day-name">周三</div>
+                <div class="cal-day-name">周四</div>
+                <div class="cal-day-name">周五</div>
+                <div class="cal-day-name">周六</div>
+
+                <!-- 生成一些示例日期 -->
+                <div class="cal-day"><div class="cal-date">11.01</div><div class="cal-event new">黑暗荣耀 S2</div></div>
+                <div class="cal-day"><div class="cal-date">11.02</div><div class="cal-event">背着善宰跑</div></div>
+                <div class="cal-day"><div class="cal-date">11.03</div><div class="cal-event">王后伞下</div></div>
+                <div class="cal-day"><div class="cal-date">11.04</div><div class="cal-event">财阀家的小儿子</div></div>
+                <div class="cal-day"><div class="cal-date">11.05</div><div class="cal-event">甜蜜暴击</div></div>
+                <div class="cal-day"><div class="cal-date">11.06</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.07</div><div class="cal-event">泪之女王</div></div>
+                
+                <div class="cal-day"><div class="cal-date">11.08</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.09</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.10</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.11</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.12</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.13</div><div class="cal-event">眼泪女王</div></div>
+                <div class="cal-day"><div class="cal-date">11.14</div><div class="cal-event">眼泪女王</div></div>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            <div class="faq-item active">
+                <div class="faq-question">在哪里可以免费看韩剧？</div>
+                <div class="faq-answer">本站提供正版授权的韩剧在线观看服务，支持高清流畅播放，无广告打扰。您可以通过网站首页的分类标签查找感兴趣的剧集。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">更新频率是怎样的？</div>
+                <div class="faq-answer">我们与韩方制作方保持同步更新，通常在韩国首播后24-48小时内提供中文字幕版本。具体更新时间请关注首页的“追剧日历”栏目。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">需要注册会员吗？</div>
+                <div class="faq-answer">注册会员可以收藏喜欢的剧集，接收更新提醒，并享受无广告的高清观看特权。目前注册完全免费。</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        欧美韩剧网
+                    </a>
+                    <p>专注提供最新最全的韩剧资源，致力于打造最优质的在线追剧平台。让每一位剧迷都能轻松找到心仪的剧集。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">韩剧推荐</a></li>
+                        <li><a href="#">韩影精选</a></li>
+                        <li><a href="#">综艺大全</a></li>
+                        <li><a href="#">追剧日历</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">浪漫爱情</a></li>
+                        <li><a href="#">悬疑推理</a></li>
+                        <li><a href="#">古装历史</a></li>
+                        <li><a href="#">职场商战</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">广告合作</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 欧美韩剧网 版权所有. 本站内容仅供学习交流，请于下载后24小时内删除.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 简单的分类标签切换效果
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    </script>
+</body>
+                              </html>
