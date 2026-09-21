@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="朝韩开战 - 全面了解半岛局势、军事力量对比、历史冲突背景及当前和平进程。提供局势分析、地缘政治解读及国际社会反应的综合资讯平台。">
+    <meta name="keywords" content="朝韩开战, 朝鲜半岛局势, 朝鲜韩国战争, 朝核问题, 地缘政治, 军事冲突">
+    <title>朝韩开战 - 半岛局势深度分析与地缘政治解读</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d32f2f;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 240px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .fact-list {
+            list-style: none;
+        }
+
+        .fact-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .fact-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .fact-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .fact-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            padding: 40px var(--spacing-unit);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 16px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--card-bg);
+                border-bottom: 1px solid var(--border-color);
+                padding: 16px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">半岛<span>观察</span></a>
+        <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">局势分析</a></li>
+                <li><a href="#">军事力量</a></li>
+                <li><a href="#">历史回顾</a></li>
+                <li><a href="#">国际反应</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>朝韩开战：局势深度解析</h1>
+        <p>深入探讨半岛地缘政治现状、军事对峙风险及历史教训，为您提供客观、全面的局势观察。</p>
+        <a href="#analysis" class="cta-button">查看局势分析</a>
+    </div>
+</section>
+
+<main class="container">
+    <div class="grid-layout">
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="section-title" id="analysis">
+                <h2>当前局势与风险分析</h2>
+            </div>
+
+            <article class="article-card">
+                <img src="https://picsum.photos/seed/korea1/800/400" alt="朝鲜半岛地图示意" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">2023年10月 • 地缘政治</div>
+                    <h3 class="card-title">半岛局势紧张：为何“开战”风险再次成为全球焦点？</h3>
+                    <p class="card-excerpt">近年来，随着朝核试验的频繁、导弹试射的升级以及外交对话的停滞，半岛局势一度逼近临界点。本文将分析当前导致局势紧张的核心因素，包括军事部署、经济制裁与内部政治动态。</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://picsum.photos/seed/military/800/400" alt="军事演习示意图" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">2023年09月 • 军事动态</div>
+                    <h3 class="card-title">军事对峙升级：双方在非军事区的最新动向</h3>
+                    <p class="card-excerpt">近期，朝韩边境地区军事活动显著增加。双方都在强化前沿防御工事，并进行大规模实弹演习。这种“针锋相对”的态势极易引发误判，引发外界对于局部冲突甚至全面战争的担忧。</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://picsum.photos/seed/history/800/400" alt="战争历史照片" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">历史回顾 • 1950-1953</div>
+                    <h3 class="card-title">从停战到对峙：朝鲜战争的深远影响</h3>
+                    <p class="card-excerpt">1950年至1953年的朝鲜战争以停战协定而非和平条约结束，这成为了半岛长期分裂的根源。回顾那段历史，有助于我们理解为何“开战”不仅仅是两国之间的问题，更牵动着全球的地缘政治格局。</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">关键数据速览</h3>
+                <ul class="fact-list">
+                    <li>
+                        <span class="fact-label">韩军总兵力</span>
+                        <span class="fact-value">约50万（现役）</span>
+                    </li>
+                    <li>
+                        <span class="fact-label">朝鲜总兵力</span>
+                        <span class="fact-value">约120万（现役）</span>
+                    </li>
+                    <li>
+                        <span class="fact-label">非军事区长度</span>
+                        <span class="fact-value">约250公里</span>
+                    </li>
+                    <li>
+                        <span class="fact-label">三八线距离首都市区</span>
+                        <span class="fact-value">约50公里</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门专题</h3>
+                <ul class="fact-list">
+                    <li><a href="#">朝鲜核武器计划详解</a></li>
+                    <li><a href="#">美韩联合军演背景</a></li>
+                    <li><a href="#">制裁对平民生活的影响</a></li>
+                    <li><a href="#">难民危机与边境管理</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">国际反应</h3>
+                <ul class="fact-list">
+                    <li><span class="fact-label">联合国安理会</span><span class="fact-value">持续关注并呼吁克制</span></li>
+                    <li><span class="fact-label">美国</span><span class="fact-value">承诺履行安保承诺</span></li>
+                    <li><span class="fact-label">中国</span><span class="fact-value">主张通过对话解决问题</span></li>
+                    <li><span class="fact-label">俄罗斯</span><span class="fact-value">呼吁缓和紧张局势</span></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<section class="faq-section">
+    <div class="container faq-container">
+        <div class="section-title">
+            <h2>常见问题解答</h2>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">如果朝韩再次开战，后果会有多严重？</div>
+            <div class="faq-answer">如果爆发全面战争，后果将是灾难性的。双方拥有庞大的常规火炮储备，足以在短时间内对对方首都及周边地区造成毁灭性打击。此外，战争可能导致大规模人道主义危机，并引发国际社会的强烈制裁和军事干预。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">目前的停战协定是否有效？</div>
+            <div class="faq-answer">1953年签署的《朝鲜停战协定》结束了实际的敌对行动，但并未签署和平条约，因此半岛在法律上仍处于“战争状态”。双方在法律上依然处于交战状态，只是目前通过军事缓冲区和外交机制维持着脆弱的和平。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">国际社会如何防止冲突爆发？</div>
+            <div class="faq-answer">国际社会主要通过联合国安理会实施制裁、外交斡旋以及美韩日三边安全合作来施压。此外，保持外交对话渠道的畅通也是防止误判、降低冲突风险的重要手段。</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="logo" style="color: #fff;">半岛<span>观察</span></div>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系方式</a>
+            <a href="#">隐私政策</a>
+        </div>
+        <p class="copyright">本站内容仅供资讯参考，不构成任何投资或军事建议。所有数据基于公开信息整理。</p>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+
+    if(menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                nav.classList.remove('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
