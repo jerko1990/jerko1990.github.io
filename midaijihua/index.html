@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="米袋计划官网提供全面的粮食安全知识、家庭储粮指南、应急储备物资清单及米袋行动社区。致力于提升公众粮食安全意识，普及科学储粮方法。">
+    <meta name="keywords" content="米袋计划,粮食安全,家庭储粮,应急储备,科学存粮">
+    <title>米袋计划-粮食安全储备与家庭储粮指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --primary-light: #D2B48C;
+            --secondary-color: #F4A460;
+            --bg-color: #FAF8F5;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #6F360F;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            font-weight: normal;
+            color: var(--text-light);
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(139, 69, 19, 0.7)), url('https://picsum.photos/seed/ricefield/1920/800.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Guide Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .guide-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #ddd;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Checklist Section */
+        .checklist-section {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .checklist-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .checklist-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .checklist-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .checklist-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .checklist-items {
+            margin-top: 30px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .checklist-content p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .checklist-visual {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--bg-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-light);
+        }
+
+        .checklist-visual h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .visual-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .visual-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        /* Community Section */
+        .community-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .community-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .community-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .community-content p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .input-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            border: none;
+            outline: none;
+        }
+
+        .input-group button {
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            border: none;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-item h3::before {
+            content: 'Q';
+            background-color: var(--primary-light);
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-light);
+            padding-left: 34px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .checklist-container {
+                flex-direction: column;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                🌾 米袋计划
+                <span>计划</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#guide">储粮指南</a></li>
+                    <li><a href="#checklist">物资清单</a></li>
+                    <li><a href="#community">加入社区</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>未雨绸缪，守护粮食安全</h1>
+            <p>米袋计划致力于普及科学储粮知识，为您提供家庭应急储备物资清单、仓储技巧及社区互助平台，帮助每个家庭建立坚实的粮食安全防线。</p>
+            <div class="hero-buttons">
+                <a href="#guide" class="btn btn-primary">开始准备</a>
+                <a href="#checklist" class="btn btn-outline" style="border-color: #fff; color: #fff; margin-left: 10px;">查看清单</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container">
+        <section class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">覆盖社区</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50w+</div>
+                <div class="stat-label">参与家庭</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">储粮专家</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">应急响应</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Guide Section -->
+    <section id="guide" class="container">
+        <div class="section-title">
+            <h2>科学储粮指南</h2>
+            <p>掌握正确的储存方法，延长粮食保质期，确保关键时刻“粮”草先行。</p>
+        </div>
+        <div class="guide-grid">
+            <article class="guide-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/grainstorage/400/300.jpg" alt="干燥防潮">
+                </div>
+                <div class="card-content">
+                    <h3>干燥防潮是核心</h3>
+                    <p>水分是粮食霉变的根源。建议使用密封性好的陶瓷罐或食品级塑料桶，并配合干燥剂（如生石灰、硅胶）储存大米和面粉。</p>
+                    <a href="#" class="btn btn-outline" style="padding: 6px 16px; font-size: 14px;">了解更多</a>
+                </div>
+            </article>
+            <article class="guide-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/coolstorage/400/300.jpg" alt="低温储存">
+                </div>
+                <div class="card-content">
+                    <h3>低温储存延缓氧化</h3>
+                    <p>高温会加速粮食中脂肪的氧化酸败。在条件允许的情况下，将储粮区域保持在阴凉通风处，或使用低温冷藏柜。</p>
+                    <a href="#" class="btn btn-outline" style="padding: 6px 16px; font-size: 14px;">了解更多</a>
+                </div>
+            </article>
+            <article class="guide-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/segregation/400/300.jpg" alt="分类存放">
+                </div>
+                <div class="card-content">
+                    <h3>生熟食品分类</h3>
+                    <p>储粮空间应避免与有异味（如樟脑丸、清洁剂）的物品混放。生熟食品分开存放，防止交叉污染。</p>
+                    <a href="#" class="btn btn-outline" style="padding: 6px 16px; font-size: 14px;">了解更多</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section id="checklist" class="checklist-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>家庭应急物资清单</h2>
+                <p>除了主食，一个完整的“米袋”还应包含哪些物资？</p>
+            </div>
+            <div class="checklist-container">
+                <div class="checklist-text">
+                    <h3>构建你的应急储备体系</h3>
+                    <p>“米袋计划”建议每个家庭至少储备能够维持 72 小时到 7 天生存所需的物资。以下是最基础的分类建议：</p>
+                    
+                    <div class="checklist-items">
+                        <div class="checklist-item">
+                            <div class="check-icon">✓</div>
+                            <div class="checklist-content">
+                                <h4>主食与副食</h4>
+                                <p>大米、面粉、挂面、压缩饼干、罐头食品、脱水蔬菜。</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon">✓</div>
+                            <div class="checklist-content">
+                                <h4>饮用水</h4>
+                                <p>瓶装水（每人每天至少2-3升），净水片或净水器滤芯。</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon">✓</div>
+                            <div class="checklist-content">
+                                <h4>医疗急救</h4>
+                                <p>常用药品（感冒药、消炎药、肠胃药）、创可贴、消毒液、急救包。</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon">✓</div>
+                            <div class="checklist-content">
+                                <h4>照明与能源</h4>
+                                <p>手电筒、备用电池、应急电源、收音机。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checklist-visual">
+                    <h3>快速自检清单</h3>
+                    <div class="visual-items">
+                        <div class="visual-item">
+                            <input type="checkbox" id="item1">
+                            <label for="item1">大米/面粉 (7天量)</label>
+                        </div>
+                        <div class="visual-item">
+                            <input type="checkbox" id="item2">
+                            <label for="item2">饮用水 (7天量)</label>
+                        </div>
+                        <div class="visual-item">
+                            <input type="checkbox" id="item3">
+                            <label for="item3">罐头食品</label>
+                        </div>
+                        <div class="visual-item">
+                            <input type="checkbox" id="item4">
+                            <label for="item4">急救包</label>
+                        </div>
+                        <div class="visual-item">
+                            <input type="checkbox" id="item5">
+                            <label for="item5">手电筒/电池</label>
+                        </div>
+                        <div class="visual-item">
+                            <input type="checkbox" id="item6">
+                            <label for="item6">常用药品</label>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button class="btn btn-primary" style="width: 100%;">生成我的物资清单</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <div class="container community-content">
+            <h2>加入“米袋计划”社区</h2>
+            <p>分享你的储粮经验，参与物资交换，与邻居共同应对突发状况。立即加入，成为守护粮食安全的行动派。</p>
+            <div class="input-group">
+                <input type="email" placeholder="输入您的电子邮箱地址">
+                <button type="button">立即加入</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container faq-section">
+        <div class="section-title">
+            <h2>常见问题解答</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>大米在密封罐里能放多久？</h3>
+                <p>在干燥、阴凉、避光的密封条件下，大米通常可以保存 6-12 个月甚至更久。但如果环境潮湿，保质期会大幅缩短。</p>
+            </div>
+            <div class="faq-item">
+                <h3>如何判断大米是否变质？</h3>
+                <p>如果发现大米有哈喇味（油耗味）、虫蛀严重、或者发霉变色，说明已经变质，不建议食用。</p>
+            </div>
+            <div class="faq-item">
+                <h3>应急储备需要每年更换吗？</h3>
+                <p>建议每年检查一次。水、罐头、药品等都有保质期，需及时更新。粮食可以定期翻动检查，确保没有受潮。</p>
+            </div>
+            <div class="faq-item">
+                <h3>米袋计划是否提供物资购买服务？</h3>
+                <p>我们提供专业的物资清单和储存建议，但建议您通过正规渠道购买应急物资，以确保食品安全和质量。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🌾 米袋计划</h3>
+                    <p>致力于提升全民粮食安全意识，通过科学的知识普及和社区互助，让每个家庭都能从容应对突发状况。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">项目背景</a></li>
+                        <li><a href="#">团队介绍</a></li>
+                        <li><a href="#">合作机构</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源支持</h4>
+                    <ul>
+                        <li><a href="#">储粮手册下载</a></li>
+                        <li><a href="#">物资采购指南</a></li>
+                        <li><a href="#">安全知识库</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 米袋计划. All Rights Reserved. 仅供学习与演示使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
