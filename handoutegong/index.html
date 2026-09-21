@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="憨豆特工2 字幕 - 提供高清中文字幕下载及双语对照资源，包含剧情简介、角色介绍及观影指南。">
+    <meta name="keywords" content="憨豆特工2, 憨豆特工2 字幕, 憨豆特工2 中文字幕, 憨豆特工2 下载, 罗温·艾金森">
+    <title>憨豆特工2 字幕 - 高清中英双语对照下载与观影指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.75rem;
+            border-left: 4px solid var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .movie-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            background: #f8f9fa;
+            padding: 0.75rem;
+            border-radius: 6px;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .synopsis h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .synopsis p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Subtitle Table */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .badge-new {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>🎬</span> 憨豆特工2 字幕网
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#download">字幕下载</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>憨豆特工2 字幕</h1>
+        <p>为您提供高清中英双语字幕资源，支持 SRT 和 ASS 格式，助您完美欣赏罗温·艾金森的经典喜剧作品。</p>
+        <div class="hero-buttons">
+            <a href="#download" class="btn btn-primary">立即下载字幕</a>
+            <a href="#guide" class="btn btn-secondary">查看播放指南</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- 影片基本信息 -->
+        <section class="info-grid">
+            <article class="card synopsis">
+                <h2>影片简介</h2>
+                <h3>《憨豆特工2》</h3>
+                <p>憨豆先生（罗温·艾金森 饰）凭借其一贯的滑稽动作和笨拙的行事风格，意外被英国军情五处（MI5）选中，成为了一名真正的特工。这一次，他不仅要面对来自神秘组织“东方黑影”的威胁，还要在伦敦的街头巷尾执行一系列看似荒诞实则惊险的任务。影片延续了第一部轻松幽默的风格，同时加入了更多动作场面，展现了憨豆特工独特的特工智慧。</p>
+                <p>本片适合全年龄段观众观看，虽然情节充满误会和巧合，但核心传递的是勇气、友情和善良的价值观。</p>
+            </article>
+            
+            <aside class="card">
+                <h3>影片信息</h3>
+                <div class="movie-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">导演</span>
+                        <span class="meta-value">史蒂文·梅尔</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">主演</span>
+                        <span class="meta-value">罗温·艾金森</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">上映年份</span>
+                        <span class="meta-value">2007</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">类型</span>
+                        <span class="meta-value">动作 / 喜剧</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">片长</span>
+                        <span class="meta-value">约 90 分钟</span>
+                    </div>
+                </div>
+                <div style="background: #eef2f3; padding: 1rem; border-radius: 6px; font-size: 0.9rem; color: #555;">
+                    <strong>温馨提示：</strong><br>
+                    下载字幕前请确认您的视频文件版本（如高清蓝光、DVD或流媒体版），以免字幕时间轴不匹配。
+                </div>
+            </aside>
+        </section>
+
+        <!-- 字幕下载专区 -->
+        <section id="download">
+            <h2 class="section-title">字幕下载专区</h2>
+            <div class="card">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>版本类型</th>
+                                <th>语言</th>
+                                <th>格式</th>
+                                <th>大小</th>
+                                <th>更新时间</th>
+                                <th>下载链接</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>标准版</td>
+                                <td>中英双语</td>
+                                <td>SRT</td>
+                                <td>~45 KB</td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <a href="#" class="download-link" onclick="alert('正在开始下载：憨豆特工2_标准版.srt')">
+                                        ⬇ 下载
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>蓝光高清版</td>
+                                <td>中英双语</td>
+                                <td>ASS</td>
+                                <td>~120 KB</td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <a href="#" class="download-link" onclick="alert('正在开始下载：憨豆特工2_蓝光高清版.ass')">
+                                        ⬇ 下载
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>纯中文版</td>
+                                <td>简体中文</td>
+                                <td>SRT</td>
+                                <td>~42 KB</td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <a href="#" class="download-link" onclick="alert('正在开始下载：憨豆特工2_纯中文版.srt')">
+                                        ⬇ 下载
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>纯英文版</td>
+                                <td>English</td>
+                                <td>SRT</td>
+                                <td>~40 KB</td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <a href="#" class="download-link" onclick="alert('正在开始下载：Johnny English 2_English.srt')">
+                                        ⬇ 下载
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 1.5rem; padding: 1rem; background-color: #fff8e1; border-left: 4px solid #ffc107; border-radius: 4px;">
+                    <p style="margin: 0; font-size: 0.9rem; color: #856404;">
+                        <strong>文件说明：</strong> SRT 字幕文件可直接拖入播放器使用；ASS 字幕文件包含更精细的字体和位置控制，建议搭配本地播放器（如 PotPlayer, VLC）使用以获得最佳效果。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section id="faq" style="margin-top: 3rem;">
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">字幕时间轴不准怎么办？</div>
+                    <div class="faq-answer">这通常是因为视频文件版本与字幕不匹配。请尝试下载对应分辨率的字幕版本，或者使用播放器的“字幕偏移”功能进行微调（通常在 +0.5秒 到 +1秒 之间）。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何将字幕添加到视频文件中？</div>
+                    <div class="faq-answer">对于 SRT 文件，您可以下载名为“MKVToolNix”或“格式工厂”等软件，将字幕轨道添加到视频轨道中合并导出。或者直接在播放器中加载字幕文件即可观看。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">这些字幕是免费的吗？</div>
+                    <div class="faq-answer">是的，本站提供的所有字幕资源均为社区爱好者制作并免费分享，仅供个人学习交流使用，请勿用于商业用途。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载速度很慢怎么办？</div>
+                    <div class="faq-answer">建议在网络环境较好的情况下下载，或者尝试使用支持断点续传的下载工具。如果文件较大，请耐心等待。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo" style="color: white; margin-bottom: 1rem;">
+                <span>🎬</span> 憨豆特工2 字幕网
+            </div>
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系站长</a>
+            </div>
+            <p class="copyright">
+                Copyright &copy; 2023 憨豆特工2 字幕网. All Rights Reserved.<br>
+                本站资源来自互联网整理，仅供技术交流与学习使用。
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
