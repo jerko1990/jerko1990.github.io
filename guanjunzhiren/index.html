@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冠军之刃官方资料站，提供游戏背景故事、角色介绍、装备图鉴、战斗技巧及玩家社区攻略。探索荣耀与挑战并存的剑术世界。">
+    <meta name="keywords" content="冠军之刃, 网页游戏, 角色扮演, 剑术游戏, 攻略, 装备图鉴">
+    <title>冠军之刃-荣耀竞技场与装备图鉴</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c92a2a;
+            --secondary-color: #ffc107;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn-login:hover {
+            background-color: #a61d1d;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--dark-bg)), url('https://picsum.photos/seed/swordhero/1600/900.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #000;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .view-all {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Featured Characters */
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .char-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .char-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .char-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #2a2a2a;
+        }
+
+        .char-info {
+            padding: 15px;
+        }
+
+        .char-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .char-class {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .char-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Equipment Showcase */
+        .equip-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .equip-sidebar {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        .equip-list li {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .equip-list li:hover, .equip-list li.active {
+            background-color: #2a2a2a;
+            color: var(--primary-color);
+        }
+
+        .equip-detail {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            display: none; /* Hidden by default */
+        }
+
+        .equip-detail.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .equip-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .equip-icon-large {
+            width: 150px;
+            height: 150px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid var(--primary-color);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            font-weight: bold;
+        }
+
+        .rarity-legendary { color: #ffd700; }
+        .rarity-epic { color: #a335ee; }
+        .rarity-rare { color: #0070dd; }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .equip-layout { grid-template-columns: 1fr; }
+            .equip-sidebar { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; } /* Simplified for demo */
+            .header-inner { flex-direction: column; gap: 15px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>⚔️</span> 冠军之刃
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#characters">英雄档案</a></li>
+                    <li><a href="#equipment">装备图鉴</a></li>
+                    <li><a href="#guide">游戏指南</a></li>
+                    <li><a href="#community">玩家社区</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-login">立即登录</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>荣耀与挑战并存</h1>
+                <p>加入这场跨越大陆的史诗对决。在《冠军之刃》中，唯有最锋利的意志与最强的剑术，才能铸就至高无上的王座。</p>
+                <a href="#" class="btn-cta">开始征程</a>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">⚔️</div>
+                    <h3>极致战斗</h3>
+                    <p>深度定制的连招系统，流畅的打击感，带来如同电影般的战斗体验。</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🗡️</div>
+                    <h3>百变装备</h3>
+                    <p>收集稀有材料，锻造传说神兵，打造独一无二的角色属性。</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏆</div>
+                    <h3>竞技场</h3>
+                    <p>实名排名竞技系统，挑战全服高手，赢取专属冠军徽章。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Characters Section -->
+        <section id="characters">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">英雄档案</h2>
+                    <a href="#" class="view-all">查看全部角色 &rarr;</a>
+                </div>
+                <div class="char-grid">
+                    <!-- Character 1 -->
+                    <article class="char-card">
+                        <img src="https://picsum.photos/seed/warrior/300/400" alt="狂战士" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name">雷恩·暴怒</h3>
+                            <span class="char-class">狂战士</span>
+                            <p class="char-desc">来自北境的狂战士，以一敌百，用怒火点燃战场。</p>
+                        </div>
+                    </article>
+                    <!-- Character 2 -->
+                    <article class="char-card">
+                        <img src="https://picsum.photos/seed/assassin/300/400" alt="暗影刺客" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name">夜影</h3>
+                            <span class="char-class">刺客</span>
+                            <p class="char-desc">行走在阴影中的杀手，没有声音，只有致命的终结。</p>
+                        </div>
+                    </article>
+                    <!-- Character 3 -->
+                    <article class="char-card">
+                        <img src="https://picsum.photos/seed/mage/300/400" alt="圣光法师" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name">艾瑞莉娅</h3>
+                            <span class="char-class">法师</span>
+                            <p class="char-desc">掌握元素之力的守护者，用光与火净化邪恶。</p>
+                        </div>
+                    </article>
+                    <!-- Character 4 -->
+                    <article class="char-card">
+                        <img src="https://picsum.photos/seed/archer/300/400" alt="神射手" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name">凯尔</h3>
+                            <span class="char-class">射手</span>
+                            <p class="char-desc">百步穿杨的射手，在敌人察觉之前将其放倒。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Section -->
+        <section id="equipment" style="background-color: #181818;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">传说装备图鉴</h2>
+                    <a href="#" class="view-all">查看全部装备 &rarr;</a>
+                </div>
+                <div class="equip-layout">
+                    <aside class="equip-sidebar">
+                        <ul class="equip-list">
+                            <li class="active" onclick="showEquip('sword')">冠军之刃</li>
+                            <li onclick="showEquip('shield')">圣光之盾</li>
+                            <li onclick="showEquip('bow')">暗夜之弓</li>
+                            <li onclick="showEquip('staff')">深渊法杖</li>
+                        </ul>
+                    </aside>
+                    <div class="equip-content">
+                        <!-- Sword Detail -->
+                        <div id="sword" class="equip-detail active">
+                            <div class="equip-header">
+                                <div class="equip-icon-large">⚔️</div>
+                                <div>
+                                    <h2 style="font-size: 2rem; margin-bottom: 10px;">冠军之刃</h2>
+                                    <span class="rarity-legendary">史诗品质</span>
+                                    <p style="color: #888; margin-top: 10px;">这把剑的剑身由陨铁打造，据说在满月之夜会发出微弱的光芒。</p>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">攻击力</span>
+                                    <span class="stat-value">2,450</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">暴击率</span>
+                                    <span class="stat-value">15%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">附加效果</span>
+                                    <span class="stat-value">攻击时造成额外火焰伤害</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">需求等级</span>
+                                    <span class="stat-value">60</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shield Detail -->
+                        <div id="shield" class="equip-detail">
+                            <div class="equip-header">
+                                <div class="equip-icon-large">🛡️</div>
+                                <div>
+                                    <h2 style="font-size: 2rem; margin-bottom: 10px;">圣光之盾</h2>
+                                    <span class="rarity-legendary">传说品质</span>
+                                    <p style="color: #888; margin-top: 10px;">一面刻有古老符文的盾牌，能反弹对持有者造成的伤害。</p>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">防御力</span>
+                                    <span class="stat-value">1,200</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">格挡率</span>
+                                    <span class="stat-value">25%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">附加效果</span>
+                                    <span class="stat-value">受到攻击时恢复生命值</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">需求等级</span>
+                                    <span class="stat-value">55</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bow Detail -->
+                        <div id="bow" class="equip-detail">
+                            <div class="equip-header">
+                                <div class="equip-icon-large">🏹</div>
+                                <div>
+                                    <h2 style="font-size: 2rem; margin-bottom: 10px;">暗夜之弓</h2>
+                                    <span class="rarity-epic">史诗品质</span>
+                                    <p style="color: #888; margin-top: 10px;">由千年黑木制成，射程极远，且箭矢带有剧毒。</p>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">攻击力</span>
+                                    <span class="stat-value">1,800</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">射程</span>
+                                    <span class="stat-value">极远</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">附加效果</span>
+                                    <span class="stat-value">降低敌人命中率</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">需求等级</span>
+                                    <span class="stat-value">58</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staff Detail -->
+                        <div id="staff" class="equip-detail">
+                            <div class="equip-header">
+                                <div class="equip-icon-large">🔮</div>
+                                <div>
+                                    <h2 style="font-size: 2rem; margin-bottom: 10px;">深渊法杖</h2>
+                                    <span class="rarity-epic">史诗品质</span>
+                                    <p style="color: #888; margin-top: 10px;">吸取周围元素力量的法杖，施法消耗减少。</p>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">法术强度</span>
+                                    <span class="stat-value">2,100</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">冷却缩减</span>
+                                    <span class="stat-value">10%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">附加效果</span>
+                                    <span class="stat-value">技能范围扩大 15%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">需求等级</span>
+                                    <span class="stat-value">60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">新手指南</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">如何快速提升等级？</div>
+                        <div class="faq-answer">完成主线任务可以获得大量经验值。同时，每日的副本挑战和限时活动也是升级的重要途径。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">装备强化有失败率吗？</div>
+                        <div class="faq-answer">是的，装备强化存在一定的失败率。建议在强化等级较高时使用保护符，以免装备掉级。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">哪些职业适合新手？</div>
+                        <div class="faq-answer">狂战士和圣骑士拥有较高的生存能力，操作相对简单，非常适合新手玩家入门。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何加入公会？</div>
+                        <div class="faq-answer">在主城找到公会管理员，花费一定金币即可创建或加入现有的公会。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">游戏简介</a></li>
+                        <li><a href="#">开发团队</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>玩家支持</h4>
+                    <ul>
+                        <li><a href="#">客服中心</a></li>
+                        <li><a href="#">账号安全</a></li>
+                        <li><a href="#">防沉迷系统</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">下载游戏</a></li>
+                        <li><a href="#">游戏公告</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 冠军之刃官方网站. All Rights Reserved. 本页面为设计演示，非真实游戏官网。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Equipment Tab Logic
+        function showEquip(id) {
+            // Remove active class from all details
+            document.querySelectorAll('.equip-detail').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Remove active class from all sidebar items
+            document.querySelectorAll('.equip-list li').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Add active class to selected
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+                                                                         </html>
